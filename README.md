@@ -1,1 +1,3 @@
-# helsinki-algorithms-project
+# Handwritten number identification using KNN classification
+
+  [Project Specification](/specification.md)
