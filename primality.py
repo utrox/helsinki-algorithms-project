@@ -7,7 +7,6 @@ def is_prime(n: int) -> bool:
     """
     Uses the Miller-Rabin probabilistic prime test
     to determine if the number is a prime or not.
-    https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
 
     Arguments:
     n: int - the value you want to test the primality of.
@@ -18,11 +17,10 @@ def is_prime(n: int) -> bool:
     # Handle easy and neccessary cases to optimize the function
     if n == 2 or n == 3:
         return True
-    if n % 2 == 0 or n == 1:
+    if n % 2 == 0 or n <= 1:
         return False
     k, m = factorize(n)
-
-    return check_composite(n, k, m, DEFAULT_STEPS)
+    return check_primality(n, k, m, DEFAULT_STEPS)
 
 
 def factorize(n: int) -> tuple[int, int]:
@@ -38,13 +36,13 @@ def factorize(n: int) -> tuple[int, int]:
     steps = 0
     n = n - 1
     while n % 2 == 0:
-        n = n / 2
+        n //= 2 # integer division
         steps += 1
 
-    return steps, int(n)
+    return steps, n
 
 
-def check_composite(n: int, k: int, m: int, steps: int) -> bool:
+def check_primality(n: int, k: int, m: int, steps: int) -> bool:
     """
     Recursive function that checks if the number is (probably) prime or not.
 
@@ -80,24 +78,27 @@ def check_composite(n: int, k: int, m: int, steps: int) -> bool:
         # The required amount of steps has been reached without
         # proving that n is composite, so it's probably a prime.
         return True
-    
+
     # random.randint(x, y): x <= a <= y
     a = random.randint(2, n - 2)
 
-    x = a**m % n
+    # x = a**m % n
+    x = pow(a, m, n)
     if x == 1 or x == n - 1:
         # n might be a prime, so proceed with the next step
-        return check_composite(n, k, m, steps - 1)
-    
+        return check_primality(n, k, m, steps - 1)
+
     m2 = m
-    while (m2 != n - 1):
-        x = x*x % n
+    while m2 != n - 1:
+        # x = x * x % n
+        x = pow(x, 2, n)
         m2 *= 2
         if x == 1:
-            # n is defenetly composite, so return False
+            # n is definitely composite, so return False
             return False
-        if x == n - 1:
+        elif x == n - 1:
             # n might be a prime, so proceed with the next step
-            return check_composite(n, k, m, steps - 1)
-    # n is defenetly composite, so return False
+            return check_primality(n, k, m, steps - 1)
+    
+    # n is definitely composite, so return False
     return False
