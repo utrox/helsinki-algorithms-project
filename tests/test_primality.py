@@ -1,6 +1,6 @@
 import json
 import pytest
-from primality import is_prime, factorize, check_composite
+from primality import is_prime, factorize, check_primality
 
 
 def test_factorization():
@@ -12,7 +12,7 @@ def test_factorization():
 
 def test_primality():
     values = json.load(open("tests/data/test_prime_values.json"))
-    for i in range(values[-1]):
+    for i in range(-10, values[-1]):
         prime = is_prime(i)
         if prime and i not in values:
             raise AssertionError
@@ -20,11 +20,11 @@ def test_primality():
             raise AssertionError
         
 
-def test_check_composite_only_accepts_integers():
+def test_check_primality_only_accepts_integers():
     """Check that the function only accepts integers as arguments, for all values."""
     values = [1, 1, 1, 1.0]
     for _ in range(len(values)):
         with pytest.raises(TypeError):
-            check_composite(*values)
+            check_primality(*values)
         # Rotates the list so that the first value becomes the last one.
         values.append(values.pop(0))
