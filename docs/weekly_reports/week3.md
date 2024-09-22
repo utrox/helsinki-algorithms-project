@@ -7,7 +7,7 @@
     - Encoding in asn.1 format, and storing keys in files
 
 ### What has been unclear or problematic? 
-- I'm fine to use existing [asn1 encoding library](https://pypi.org/project/pyasn1/), intead of implementing that myself, right? 
+- I'm fine to use existing [asn1 encoding library](https://pypi.org/project/pyasn1/), instead of implementing that myself too, right? 
 
 ### What next?
 - Public key encryption (Confidentality) with private key decryption
