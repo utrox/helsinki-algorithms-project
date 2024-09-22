@@ -6,4 +6,5 @@
 ### Weekly reports
   - [Week #1](/docs/weekly_reports/week1.md)
   - [Week #2](/docs/weekly_reports/week2.md)
+  - [Week #3](/docs/weekly_reports/week3.md)
 
