@@ -1,6 +1,8 @@
 import random
+from erathostenes import sieve_of_erathostenes
 
 DEFAULT_STEPS = 20
+SMALLEST_PRIMES = sieve_of_erathostenes(4000)
 
 
 def is_prime(n: int) -> bool:
@@ -17,7 +19,15 @@ def is_prime(n: int) -> bool:
     # Handle easy and neccessary cases to optimize the function
     if n == 2 or n == 3:
         return True
-    if n % 2 == 0 or n <= 1:
+    
+    #################################################################
+    # If the number is divisible by any of the smallest primes,     #
+    # its not a prime number obviously. With this, we can speed up  #
+    # the process of rejecting non-prime numbers, instead of always #
+    # using Miller-Rabin from the start. This considerably          #
+    # increases the speed of the function.                          #
+    #################################################################
+    if any([n % i == 0 and n != i for i in SMALLEST_PRIMES]) or n <= 1:
         return False
     k, m = factorize(n)
     return check_primality(n, k, m, DEFAULT_STEPS)
