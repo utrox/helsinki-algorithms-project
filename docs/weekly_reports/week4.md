@@ -7,7 +7,8 @@
 - Generate the smallest prime numbers up to n, using the Sieve of Eratosthenes algorithm
 
 ### What has been unclear or problematic? 
-- We'll have 5 minutes for the presentation, right? I'm not sure how would I fit all this information into 5 minutes. What part should I focus on, when presenting? I usually like when presenters give a background about why the technology is used instead of others, and what problems it solves, but that alone would take up a lot of the 5 minutes. 
+- We'll have 5 minutes for the presentation, right? I'm not sure how would I fit all this information into 5 minutes. What part should I focus on, when presenting? I usually like when presenters give a background about why the technology is used instead of others, and what problems it solves, but that alone would take up a lot of the 5 minutes.
+- Also, I've missed the first in person class, because I was out sick. Is the class on 2.10.2024, from 12.15 mandatory? What happens there, as all the material is online? 
 
 ### What next?
 - Finish the message encoding with the two-part encryption.
