@@ -1,7 +1,13 @@
 import secrets
 
 from primality import is_prime
-from encoding import RSAKeyType, write_key_to_file, get_base64_key, read_key_from_file, decode_base64_key
+from keygen import (
+    RSAKeyType,
+    write_key_to_file, 
+    get_base64_key, 
+    read_key_from_file, 
+    decode_base64_key
+)
 
 def generate_prime(bits: int = 1024):
     """Returns a prime number with the specified amount of bits."""

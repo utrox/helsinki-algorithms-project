@@ -15,9 +15,9 @@ def test_primality():
     for i in range(-10, values[-1]):
         prime = is_prime(i)
         if prime and i not in values:
-            raise AssertionError
+            assert False, f"{i}, result is PRIME, but is NOT acutally a prime."
         elif not prime and i in values:
-            raise AssertionError
+            assert False, f"{i}, result is NOT PRIME, but is actually a prime."
         
 
 def test_check_primality_only_accepts_integers():
