@@ -9,6 +9,7 @@ from pyasn1.type import univ, namedtype
 MODULUS = "modulus"
 PUBLIC_EXPONENT = "publicExponent"
 PRIVATE_EXPONENT = "privateExponent"
+ENCODING = "utf-8"
 
 
 class RSAPublicKey(univ.Sequence):
@@ -54,7 +55,7 @@ def get_base64_key(exponent: int, modulus: int, keyType: RSAKeyType) -> str:
     rsa_key.setComponentByName(PUBLIC_EXPONENT if isinstance(rsa_key, RSAPublicKey) else PRIVATE_EXPONENT, exponent)
 
     der_encoded_key = encoder.encode(rsa_key)
-    return base64.b64encode(der_encoded_key).decode('utf-8')
+    return base64.b64encode(der_encoded_key).decode(ENCODING)
 
 
 def write_key_to_file(filename: str, base64_encoded_key: str, keyType: RSAKeyType) -> None:
@@ -65,7 +66,7 @@ def write_key_to_file(filename: str, base64_encoded_key: str, keyType: RSAKeyTyp
     keytype_string = 'PUBLIC' if keyType.value == RSAPublicKey else 'PRIVATE'
     der_key = f"-----BEGIN {keytype_string} KEY-----\n{base64_encoded_key}\n-----END {keytype_string} KEY-----"
     with open(filename, "wb") as der_file:
-        der_file.write(der_key.encode("utf-8"))
+        der_file.write(der_key.encode(ENCODING))
     
 
 def read_key_from_file(filename: str) -> bytes:
