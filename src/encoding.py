@@ -1,9 +1,11 @@
+ENCODING = "utf-8"
+
 def message_to_integer(msg: str, bits: int) -> int:
     """Converts the message string to integer value, if it fits into the set bits."""
     if bits // 8 <= len(msg):
         raise ValueError(f"Message too long. With the current settings, a strlen of a maximum of {bits // 8} characters is supported.")
     
-    message_bytes: bytes = msg.encode('utf-8')
+    message_bytes: bytes = msg.encode(ENCODING)
     return int.from_bytes(message_bytes, byteorder='big')
 
 
@@ -12,7 +14,7 @@ def integer_to_message(msg_int):
     bytes_length: int = (msg_int.bit_length() + 7) // 8
     original_bytes: bytes = msg_int.to_bytes(bytes_length, byteorder='big')
     
-    return original_bytes.decode('utf-8')
+    return original_bytes.decode(ENCODING)
 
 
 def encode_message(msg: str, e: int, mod: int, bits: int) -> int:
