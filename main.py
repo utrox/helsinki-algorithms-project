@@ -1,5 +1,5 @@
-from rsa import generate_rsa_keypairs
-from encoding import encode_message, decode_message, double_encode_message, double_decode_message
+from helsinki_algorithms_project.rsa import generate_rsa_keypairs
+from helsinki_algorithms_project.encoding import encode_message, decode_message, double_encode_message, double_decode_message
 
 
 BITS = 1024
@@ -58,8 +58,6 @@ if __name__ == "__main__":
             sender_private_key[1], 
             BITS
         )
-    else:
-        raise ValueError("Invalid method")
     
     print("Encoded message: \n", cyphertext)
     input("Press 'ENTER' to continue with decoding the message...\n")

@@ -1,5 +1,5 @@
 import pytest
-from encoding import encode_message, decode_message, double_decode_message, double_encode_message
+from helsinki_algorithms_project.encoding import encode_message, decode_message, double_decode_message, double_encode_message
 
 
 # 2048-bit generated RSA keypair values

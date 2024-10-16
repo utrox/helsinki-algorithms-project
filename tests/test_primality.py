@@ -1,6 +1,6 @@
 import json
 import pytest
-from primality import is_prime, factorize, check_primality
+from helsinki_algorithms_project.primality import is_prime, factorize, check_primality
 
 
 def test_factorization():
