@@ -6,8 +6,7 @@ from helsinki_algorithms_project.primality import is_prime, factorize, check_pri
 def test_factorization():
     values = json.load(open("tests/data/test_factorization_values.json"))
     for key, (k, m) in values.items():
-        assert (factorize(int(key)) == (k, m), 
-                f"Factorization failed for {key}. Expected: {k, m}, got: {factorize(int(key))}")
+        assert factorize(int(key)) == (k, m), f"Factorization failed for {key}. Expected: {k, m}, got: {factorize(int(key))}"
         
 
 def test_primality():
