@@ -1,7 +1,7 @@
 import secrets
 
-from primality import is_prime
-from keygen import (
+from .primality import is_prime
+from .keygen import (
     RSAKeyType,
     write_key_to_file, 
     get_base64_key, 

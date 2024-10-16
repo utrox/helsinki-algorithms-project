@@ -1,5 +1,5 @@
 import random
-from erathostenes import sieve_of_erathostenes
+from .erathostenes import sieve_of_erathostenes
 
 DEFAULT_STEPS = 20
 SMALLEST_PRIMES = sieve_of_erathostenes(4000)

@@ -1,5 +1,5 @@
 import json
-from erathostenes import sieve_of_erathostenes
+from helsinki_algorithms_project.erathostenes import sieve_of_erathostenes
 
 def test_primality():
     TEST_TO = 10000
