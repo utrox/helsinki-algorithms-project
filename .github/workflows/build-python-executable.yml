@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my-python-executable
-          path: dist/your_script
+          path: dist/main
     
   release:
     needs: build
@@ -67,6 +67,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/your_script
-          asset_name: your_script
+          asset_path: ./dist/main
+          asset_name: main
           asset_content_type: application/octet-stream
