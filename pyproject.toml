@@ -4,9 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Bence Hunyadi <hunyadi.bence1@gmail.com>"]
 readme = "README.md"
-packages = [
-    { include = "src/rsa", from = "." }
-]
 license = "MIT"
 
 [tool.poetry.dependencies]
