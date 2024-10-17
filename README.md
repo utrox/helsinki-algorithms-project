@@ -2,6 +2,10 @@
 
 ### Documentation
   - [Project Specification](/docs/specification.md)
+  - [User Guide](/docs/user_guide.md)
+  - [Testing documentation](/docs/testing.md)
+  - [Implementation documentation](/docs/implementation.md)
+  
 
 ### Weekly reports
   - [Week #1](/docs/weekly_reports/week1.md)
