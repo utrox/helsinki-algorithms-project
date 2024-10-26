@@ -33,6 +33,7 @@ TOTAL                                            75      4    95%
 </details>
 
 ### What has been tested and how?
+- Use a combination of Unit testing, End-to-end testing, Empirical Testing in the following ways:
 - Testing the implementation of `Sieve of Erathostenes`:
   - Test primality of numbers from -10 to 10000.
   - Check if `sieve_of_erathostenes(n)` a list of correct prime numbers up to `n` value
@@ -45,9 +46,11 @@ TOTAL                                            75      4    95%
 - Test `check_primality()` only accepts integer values for ALL parameters.
   - This is needed, because with float or other values, miscalculations might happen. 
 - Tests for encoding messages:
-  - In all of the below cases, we use previously set modulus, public- and private exponents. We encode a test string, then decode it, and compare the decoded message with the original.
+  - In all of the below cases, we use previously set modulus, public- and private exponents. We encode a test string, then decode it, and compare the decoded message with the original. We are using previously generated exponents and moduluses to make sure testing of this is ineffected by the state of the key generation algorithm.
   - If we get back the original message, the test passes.
     - Encoding with public key, decoding with private key
     - Encoding with private key, decoding with public key
     - Encoding with sender's private key and the reciever's public key. Decoding with the reciever's private key and the sender's public key.
     - Ensure an exception is raised, if the message is too long for the key to encode.
+  - End to end testing, to make sure the integration of different parts of the program integrate together as expected, and overall the program works well.
+    - For all encoding types, it works basically the same way; only this time the keys are being generated too inside the test. 
